@@ -1,0 +1,63 @@
+                                            Dokumentáció
+
+A programom célja hogy megkönnyítse a Videókártyák adatainak tárolását,
+főként webhelyeknek lehet segítség de helyi boltoknak is hasznára lehet.
+A felhasználó értesítve van a programban történtekről, illetve lehetőségeiről.
+
+Az adatok osztályban találhatóak a videókártyák tulajdonságai(nevük ,memoriáinak mérete ,áruk és márkájuk).
+Mindegyik kategóriához tartozik konstruktor és getter metódus is hogy az elérhetőséget megkönnyítse.
+
+A Reader osztály a file olvasását valósítja meg a biztonság érdekében try/catch-ben.
+először felvesszük az adatok segítségével az adat ArrayList-et amibe olvassuk az adatokat, itt DocumentReader-t, Nodelist-et,
+RootElement-et és node-ot is használunk. Ezután belépünk egy for ciklusba ami NodeList hosszával egyenlő számban fut le.
+Ebben megvizsgáljuk a bekért adatok típusát, amennyiben nem felel meg kiírjuk a hibát.
+Viszont ha megfelelnek létrehozunk egy újabb NodeList-et, és 4 String típusú változót, utána pedig beljebb megyünk egy for ciklussal ami annyiszor fut le
+ahány eleme van az új NodeLsit-nek. A ciklusban létrehozunk egy node-ot aminek átadjuk az előbb vizsgált NodeList éppen vizsgált elemét.
+Majd a vizsgált elem típusát nézzük meg, hogy megfelelnek-e, amennyiben nem a ciklus nem olvassa be a file azon helyen levő
+elemeit. Amennyiben megfelelnek egy switch segítségével megnézzük milyen az adott elem neve és az alapján elhelyezzük őket
+a fent említett 4 String típusú változónál a neki megfelelőbe.
+
+
+A Marka Enumban láthatóak, hogy a felhasználónak milyen lehetőségei vannak a márka megadásánál illetve módosításánál.
+
+A main osztályban található egy menü rendszer hogy megkönnyítse és egyértelművé tegye a felhasználónak hogy melyek a lehetőségei.
+A menü lényege hogy amíg a felhasználó az 1,2,3,4 opciót választja addig a program egy while ciklusban marad.
+Itt található egy findCard metodus ahol az xml tartalmán végigmegyünk elemenként és keresünk hogy melyik név stimmel a megadott névvel.
+
+A menüpontok közül az 1. az adatok listázása: ez az algoritmus egyszerűen kiírja az eddigi adatokat az ArrayList-ből, majd kiírja
+ ezeket a felhasználónak.
+
+A menüpontok közül a 2. az új adat felvételét biztosítja a felhasználó számára. Létrehozunk egy új elemet aminek minden elemét
+az input metodusokkal kérjük be majd mentjük a listába.
+A névnél
+Egy szöveget kap a felhasználó és utána egy scanner segítségével beolvassuk az adatot,
+az árnál
+Kiírjuk, hogy a felhasználó forintban adjon meg egy árat, amennyiben negatív vagy nem egész számot adott meg értesítjük
+a felhasználót, hogy melyik hibát kell javítania, és egy újra lefut ez a része a programnak a while miatt.
+A memoria
+Bekérése nem különbözik sokban az ár bekérésétől mindössze annyi különbség van hogy a memoria 0-100 között kell lennie vagy hibaüzenet jelenik
+meg, avagy hogyha nem Integert(egész számot) a meg a felhasználó egy másik hibaüzenet jelenik meg.
+A márka
+Bekérésénél megvizsgáljuk, hogy a felhasználó a marka enum-ban megadott értékek közül választ-e.
+Amennyiben nem megfelelő márkát ad meg hibaüzenet fogadja, és közli vele a problémát és ad választási lehetőséget.
+Ezen adatok bekérése után mindegyik adatot visszaadjuk egy return értékben és elmentjük a lista elemeként.
+Amennyiben minden rendben lefutott akkor egy új elemet vettünk fel és értesítjük a felhasználót hogy sikeres volt az adatfelvétel.
+
+
+
+A menüpontok közül a 3. az adatok módosítása: bekérjük annak a kártyának a nevét amit a felhasználó módosítani szeretne.
+Ezután a biztonság érdekében egy try,catch-ben megkeressük a felhasználó által megadott nevet a findCard metodus segítségével.
+amennyiben hibásan adja meg a felhasználó egy üzenet jelenik meg a felhasználó számára és mellette kiírja hogy mit írt a felhasználó kártyanévnek
+ végül visszairányítja a menühöz. Amennyiben a név helyes volt megadjuk a kártya helyét és a kártya adatait egyesével felül lehet írni
+az input-metodusok egyesével való meghívásával felül lehet írni az adott kártya adatait. Amennyiben ez megtörtént a felhasználó
+ki lesz értesítve hogy sikeres volt az adatmódosítás.
+
+A menüpontok közül a 4. az adat törlése: itt bekérjük a felhasználótól annak a kártyának a nevét amit törölni szeretne,
+ezután a remove és a findCard használatával megkeressük és töröljük az elemet és a hozzá tartozó adatokat és a végén értesítjük
+a felhasználót hogy sikeresen megtörtént, amennyiben rosszul adta meg a kártya nevét egy üzenet jelenik meg a felhasználó számára
+emellett kiírja a felhasználó által megadott nevet és visszairányítja a menühöz.
+
+a menüpontok közül a 5. a kilépés: itt a felhasználónak 0-kell írnia a menüben hogy a fent említett while ciklusból kilép.
+Amikor kilép akkor visszaugrik a main részhez és lefut az utolsó része a programnak ahol elmenti egy xml-fileba a megfelelő formátumban.
+Itt még átmegy egy DocumentBuilder-en és egy for cikluson ami elemenként vizsgálja a tömböt és az új elemeket kiírja a xml-be a megfelelő módon.
+És végül lezárja a programot.

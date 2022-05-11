@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<adatok>
+    <adat>
+        <nev>3020</nev>
+        <memoria>12</memoria>
+        <ar>12000</ar>
+        <marka>NVIDIA</marka>
+    </adat>
+    <adat>
+        <nev>201</nev>
+        <memoria>12</memoria>
+        <ar>20000</ar>
+        <marka>GEFORCE</marka>
+    </adat>
+    <adat>
+        <nev>3090</nev>
+        <memoria>32</memoria>
+        <ar>500000</ar>
+        <marka>NVIDIA</marka>
+    </adat>
+    <adat>
+        <nev>asd</nev>
+        <memoria>12</memoria>
+        <ar>100000</ar>
+        <marka>NVIDIA</marka>
+    </adat>
+</adatok>
